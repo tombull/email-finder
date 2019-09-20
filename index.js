@@ -2,6 +2,7 @@ var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser')
 var debug = require('debug')('index');
+const publicIp = require('public-ip');
 
 var emailFinder = require('./lib/email-finder');
 
@@ -21,15 +22,16 @@ app.set("view options", {layout: false});
 // Parse the body
 // Warning: http://andrewkelley.me/post/do-not-use-bodyparser-with-express-js.html
 // parse application/json
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 
 // Serve static content from "public" directory
 app.use(express.static(rootDir + '/public'));
 
 
-app.get('/', function(req, res){
+app.get('/', async (req, res) => {
   res.render('index', {
-    GOOGLE_ANALYTICS_ID: process.env.GOOGLE_ANALYTICS_ID || ''
+    GOOGLE_ANALYTICS_ID: process.env.GOOGLE_ANALYTICS_ID || '',
+    PUBLIC_IP: await publicIp.v4()
   });
 });
 
