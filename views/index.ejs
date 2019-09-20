@@ -194,6 +194,12 @@
                 Public IP address: <%- PUBLIC_IP %>
               </h5>
             </div>
+            <div class="row center">
+                <form action="/upload" method="post" enctype="multipart/form-data">
+                    <input type="file" name="csv" />
+                    <input type="submit"></input>
+                  </form>
+            </div>
           </div>
         </div>
       </div>
