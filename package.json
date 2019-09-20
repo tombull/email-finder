@@ -15,7 +15,7 @@
   "dependencies": {
     "async": "^1.5.2",
     "body-parser": "^1.15.2",
-    "csv-parse": "^1.1.7",
+    "csv-parse": "^4.4.6",
     "debug": "^2.3.3",
     "ejs": "^2.5.5",
     "email-existence": "^0.1.5",
