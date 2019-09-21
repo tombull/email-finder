@@ -66,7 +66,7 @@ app.post('/upload', upload.single('csv'), function(req, res, next) {
       fileRows.push(data);
     })
     .on('end', function() {
-      let working = fileRows.slice(0, 100);
+      let working = fileRows.slice(0, 1000);
       fs.unlinkSync(req.file.path);
       let resultCsv = [];
       let allPromises = [];
